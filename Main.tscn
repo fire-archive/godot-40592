@@ -304,21 +304,21 @@ __meta__ = {
 }
 
 [node name="HFlowContainer" type="HFlowContainer" parent="Control"]
-offset_right = 40.0
-offset_bottom = 500.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HSeparator" type="Control" parent="Control/HFlowContainer"]
-offset_right = 581.0
+offset_right = 614.0
 offset_bottom = 500.0
 rect_min_size = Vector2(0, 500)
 size_flags_horizontal = 3
 
 [node name="VFlowContainer2" type="VFlowContainer" parent="Control/HFlowContainer"]
 offset_top = 504.0
-offset_right = 581.0
+offset_right = 614.0
 offset_bottom = 530.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -343,25 +343,25 @@ uppercase = true
 
 [node name="VSeparator" type="Control" parent="Control/HFlowContainer/VFlowContainer2"]
 offset_left = 201.0
-offset_right = 301.0
+offset_right = 251.0
 offset_bottom = 26.0
-rect_min_size = Vector2(100, 0)
+rect_min_size = Vector2(50, 0)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Replay" type="Label" parent="Control/HFlowContainer/VFlowContainer2"]
-offset_left = 305.0
-offset_right = 557.0
+offset_left = 255.0
+offset_right = 590.0
 offset_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-text = "LOScript Slerp vs Cubic slerp"
+text = "LOScript Slerp vs LOScript  Cubic slerp"
 language = "en"
 uppercase = true
 
 [node name="VSeparator3" type="Control" parent="Control/HFlowContainer/VFlowContainer2"]
-offset_left = 561.0
-offset_right = 581.0
+offset_left = 594.0
+offset_right = 614.0
 offset_bottom = 26.0
 rect_min_size = Vector2(20, 0)
 size_flags_horizontal = 3
