@@ -9,18 +9,28 @@
 [ext_resource type="Script" path="res://DebugLines.gd" id="6_nec70"]
 [ext_resource type="PackedScene" uid="uid://dgfq0cgjlpn7x" path="res://debug_indicator_TipsOnly.tscn" id="6_tilwc"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mspgj"]
-sky_top_color = Color(0.215686, 0.34902, 0.466667, 1)
-sky_horizon_color = Color(0.553922, 0.587255, 0.616667, 1)
-ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0.553922, 0.587255, 0.616667, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eko38"]
+sky_top_color = Color(1, 1, 1, 1)
+sky_horizon_color = Color(0.780392, 0.780392, 0.782353, 1)
+ground_bottom_color = Color(0.121569, 0.121569, 0.129412, 1)
+ground_horizon_color = Color(0.780392, 0.780392, 0.782353, 1)
 
-[sub_resource type="Sky" id="Sky_6xs6m"]
-sky_material = SubResource( "ProceduralSkyMaterial_mspgj" )
+[sub_resource type="Sky" id="Sky_00uh5"]
+sky_material = SubResource( "ProceduralSkyMaterial_eko38" )
 
-[sub_resource type="Environment" id="Environment_6s7wk"]
+[sub_resource type="Environment" id="Environment_5bc8l"]
 background_mode = 2
-sky = SubResource( "Sky_6xs6m" )
+sky = SubResource( "Sky_00uh5" )
+tonemap_mode = 2
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_read_sky_light = true
+sdfgi_cascades = 1
+sdfgi_min_cell_size = 31.25
+sdfgi_cascade0_distance = 2000.0
+sdfgi_max_distance = 4000.0
+sdfgi_y_scale = 2
+glow_enabled = true
 
 [sub_resource type="Animation" id="Animation_x6cxi"]
 resource_name = "Test"
@@ -129,8 +139,13 @@ replaySpeed = 1.0
 replayTimeLoopStart = 0
 replayTimeLoopEnd = 100000
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 250.0
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( "Environment_6s7wk" )
+environment = SubResource( "Environment_5bc8l" )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Test"
@@ -179,9 +194,6 @@ mesh = SubResource( "BoxMesh_j2fwk" )
 
 [node name="FirstPersonFlyer" parent="." instance=ExtResource( "2_c50us" )]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 6)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.343709, -0.586767, 0.733191, 0, 0.780758, 0.624834, -0.939076, -0.214761, 0.268353, 0, 4.62446, 0)
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.69822, 0)
