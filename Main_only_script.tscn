@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b5ci72fa3rjyn"]
+[gd_scene load_steps=23 format=3 uid="uid://h0niudrbg7j3"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_0w34i"]
 [ext_resource type="PackedScene" uid="uid://bsiv04ubiyxjr" path="res://debug_indicator.tscn" id="1_fe687"]
@@ -35,75 +35,12 @@ glow_enabled = true
 resource_name = "Test"
 length = 34.0
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("slerp:quaternion")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22.1, 24, 26, 28, 30, 32),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Quaternion(0, 0, 0, 1), Quaternion(0, 0, -0.707, 0.707), Quaternion(0.509045, 0.505648, -0.49089, 0.494187), Quaternion(0.707105, 0.00212132, 0.707105, 0), Quaternion(0.458449, 0.538813, 0.458986, 0.537436), Quaternion(-0.000707107, 0.707107, 0, 0.707107), Quaternion(0.707107, 0, 0, 0.707107), Quaternion(0.5, 0.5, 0.5, 0.5), Quaternion(0.790594, -0.205453, -0.449878, 0.361053), Quaternion(-0.0370055, -0.196145, 0.881975, 0.426939), Quaternion(0, 0, 0, 1), Quaternion(0, 0, 0, 1), Quaternion(0, 0, 0, 1), Quaternion(0, 0, 0, 1), Quaternion(0.707, 0, 0.707, 0), Quaternion(1, 0, 0, 0), Quaternion(-1, 0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("cubic_slerp:quaternion")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22.1, 24, 26, 28, 30, 32),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Quaternion(0, 0, 0, 1), Quaternion(0, 0, -0.707, 0.707), Quaternion(0.509045, 0.505648, -0.49089, 0.494187), Quaternion(0.707105, 0.00212132, 0.707105, 0), Quaternion(0.458449, 0.538813, 0.458986, 0.537436), Quaternion(-0.000707107, 0.707107, 0, 0.707107), Quaternion(0.707107, 0, 0, 0.707107), Quaternion(0.5, 0.5, 0.5, 0.5), Quaternion(0.790594, -0.205453, -0.449878, 0.361053), Quaternion(-0.0370055, -0.196145, 0.881975, 0.426939), Quaternion(0, 0, 0, 1), Quaternion(0, 0, 0, 1), Quaternion(0, 0, 0, 1), Quaternion(0, 0, 0, 1), Quaternion(0.707, 0, 0.707, 0), Quaternion(1, 0, 0, 0), Quaternion(-1, 0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("lastKey:quaternion")
-tracks/2/interp = 0
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20.1, 22, 24, 26, 28.0035, 29.9957, 32.0044),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Quaternion(0, 0, -0.707, 0.707), Quaternion(0.509045, 0.505648, -0.49089, 0.494187), Quaternion(0.707105, 0.00212132, 0.707105, 0), Quaternion(0.458449, 0.538813, 0.458986, 0.537436), Quaternion(-0.000707107, 0.707107, 0, 0.707107), Quaternion(0.707107, 0, 0, 0.707107), Quaternion(0.5, 0.5, 0.5, 0.5), Quaternion(0.790594, -0.205453, -0.449878, 0.361053), Quaternion(-0.0370055, -0.196145, 0.881975, 0.426939), Quaternion(0, 0, 0, 1), Quaternion(0, 0, 0, 1), Quaternion(0, 0, 0, 1), Quaternion(0, 0, 0, 1), Quaternion(0.707, 0, 0.707, 0), Quaternion(1, 0, 0, 0), Quaternion(-1, 0, 0, 0), Quaternion(0, 0, 0, 1)]
-}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erogr"]
 shading_mode = 0
 vertex_color_use_as_albedo = true
 use_point_size = true
 point_size = 5.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_86kc0"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_jr4ad"]
-material = SubResource( "StandardMaterial3D_86kc0" )
-size = Vector3(0.4, 0.4, 0.4)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0uvn"]
-shading_mode = 0
-albedo_color = Color(1, 1, 0, 1)
-use_point_size = true
-point_size = 5.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhh1v"]
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_4dbh4"]
-material = SubResource( "StandardMaterial3D_fhh1v" )
-size = Vector3(0.4, 0.4, 0.4)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5htn"]
-albedo_color = Color(0, 0, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_j2fwk"]
-material = SubResource( "StandardMaterial3D_u5htn" )
-size = Vector3(0.4, 0.4, 0.4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bdqjc"]
 transparency = 1
@@ -125,11 +62,25 @@ point_size = 5.0
 shading_mode = 0
 albedo_color = Color(1, 1, 0, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_86kc0"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jr4ad"]
+material = SubResource( "StandardMaterial3D_86kc0" )
+size = Vector3(0.4, 0.4, 0.4)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cui2m"]
 shading_mode = 0
 albedo_color = Color(1, 1, 0, 1)
 use_point_size = true
 point_size = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhh1v"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4dbh4"]
+material = SubResource( "StandardMaterial3D_fhh1v" )
+size = Vector3(0.4, 0.4, 0.4)
 
 [node name="Main" type="Node3D"]
 script = ExtResource( "1_0w34i" )
@@ -151,45 +102,11 @@ autoplay = "Test"
 anims/Test = SubResource( "Animation_x6cxi" )
 
 [node name="DebugTraces_slerp" type="MeshInstance3D" parent="."]
-skeleton = NodePath("../slerp")
+skeleton = NodePath("")
 script = ExtResource( "3_q672x" )
 pointMaterial = SubResource( "StandardMaterial3D_erogr" )
 tipHistoryLength = 120
 debugIndicatorPath = "../slerp/DebugIndicator"
-
-[node name="slerp" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0, 0)
-rotation_edit_mode = 1
-
-[node name="DebugIndicator" parent="slerp" instance=ExtResource( "1_fe687" )]
-
-[node name="Box" type="MeshInstance3D" parent="slerp"]
-mesh = SubResource( "BoxMesh_jr4ad" )
-
-[node name="DebugTraces_cubic_slerp" type="MeshInstance3D" parent="."]
-skeleton = NodePath("../slerp")
-script = ExtResource( "3_q672x" )
-pointMaterial = SubResource( "StandardMaterial3D_r0uvn" )
-tipHistoryLength = 120
-debugIndicatorPath = "../cubic_slerp/DebugIndicator"
-
-[node name="cubic_slerp" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0, 0)
-rotation_edit_mode = 1
-
-[node name="DebugIndicator" parent="cubic_slerp" instance=ExtResource( "1_fe687" )]
-
-[node name="Box" type="MeshInstance3D" parent="cubic_slerp"]
-mesh = SubResource( "BoxMesh_4dbh4" )
-
-[node name="lastKey" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 2.1, 0)
-rotation_edit_mode = 1
-
-[node name="DebugIndicator" parent="lastKey" instance=ExtResource( "1_fe687" )]
-
-[node name="Box" type="MeshInstance3D" parent="lastKey"]
-mesh = SubResource( "BoxMesh_j2fwk" )
 
 [node name="FirstPersonFlyer" parent="." instance=ExtResource( "2_c50us" )]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 6)
@@ -199,14 +116,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.69822, 0)
 mesh = SubResource( "BoxMesh_kiq8u" )
 
 [node name="DebugTraces_LOScript_slerp" type="MeshInstance3D" parent="."]
-skeleton = NodePath("../slerp")
+skeleton = NodePath("")
 script = ExtResource( "3_q672x" )
 pointMaterial = SubResource( "StandardMaterial3D_dcyws" )
 tipHistoryLength = 120
 debugIndicatorPath = "../LOScriptReplayerGroup_slerp/LOSolver_Interpolated/DebugIndicator"
 
 [node name="DebugLines_LOScript_slerp" type="MeshInstance3D" parent="."]
-skeleton = NodePath("../slerp")
+skeleton = NodePath("")
 script = ExtResource( "6_nec70" )
 lineMaterial = SubResource( "StandardMaterial3D_1uw0r" )
 debugIndicatorPath = "../LOScriptReplayerGroup_slerp"
@@ -253,14 +170,14 @@ quatInterpolationMethod = 3
 [node name="DebugIndicator" parent="LOScriptReplayerGroup_slerp/LOSolver_PostB" instance=ExtResource( "6_tilwc" )]
 
 [node name="DebugTraces_LOScript_cubic_slerp" type="MeshInstance3D" parent="."]
-skeleton = NodePath("../slerp")
+skeleton = NodePath("")
 script = ExtResource( "3_q672x" )
 pointMaterial = SubResource( "StandardMaterial3D_cui2m" )
 tipHistoryLength = 120
 debugIndicatorPath = "../LOScriptReplayerGroup_cubic_slerp/LOSolver_Interpolated/DebugIndicator"
 
 [node name="DebugLines_LOScript_cubic_slerp" type="MeshInstance3D" parent="."]
-skeleton = NodePath("../slerp")
+skeleton = NodePath("")
 script = ExtResource( "6_nec70" )
 lineMaterial = SubResource( "StandardMaterial3D_1uw0r" )
 debugIndicatorPath = "../LOScriptReplayerGroup_cubic_slerp"

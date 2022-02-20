@@ -22,6 +22,12 @@ func _process(_delta):
 	var interpolatedTipY = get_node(debugIndicatorPath + "/YAxis/TipEnd")
 	var interpolatedTipZ = get_node(debugIndicatorPath + "/ZAxis/TipEnd")
 
+	if not interpolatedTipX:
+		return	
+	if not interpolatedTipY:
+		return
+	if not interpolatedTipZ:
+		return
 	if (tipXHistory.size() == 0 or
 		interpolatedTipX.global_transform.origin.distance_to(tipXHistory[tipXHistory.size()-1]) >= minDistanceBetweenPoints or
 		interpolatedTipY.global_transform.origin.distance_to(tipYHistory[tipYHistory.size()-1]) >= minDistanceBetweenPoints or

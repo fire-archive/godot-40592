@@ -29,7 +29,15 @@ func _process(_delta):
 	var postBTipX = get_node(debugIndicatorPath + "/LOSolver_PostB/DebugIndicator/XAxis/TipEnd")
 	var postBTipY = get_node(debugIndicatorPath + "/LOSolver_PostB/DebugIndicator/YAxis/TipEnd")
 	var postBTipZ = get_node(debugIndicatorPath + "/LOSolver_PostB/DebugIndicator/ZAxis/TipEnd")
-
+	
+	if not preATipX:
+		return
+	if not aTipX:
+		return
+	if not bTipX:
+		return
+	if not postBTipX:
+		return
 	immediate.surface_begin(Mesh.PRIMITIVE_LINE_STRIP, lineMaterial)
 #	immediate.surface_set_color(Color(0, 0, 0))
 	immediate.surface_add_vertex(preATipX.global_transform.origin)

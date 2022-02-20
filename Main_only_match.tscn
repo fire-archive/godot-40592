@@ -1,13 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://b5ci72fa3rjyn"]
+[gd_scene load_steps=23 format=3 uid="uid://boxar1mx1sjn6"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_0w34i"]
 [ext_resource type="PackedScene" uid="uid://bsiv04ubiyxjr" path="res://debug_indicator.tscn" id="1_fe687"]
 [ext_resource type="PackedScene" uid="uid://b3ywvgurbetiy" path="res://FirstPersonFlyer.tscn" id="2_c50us"]
 [ext_resource type="Script" path="res://DebugTraces.gd" id="3_q672x"]
 [ext_resource type="Texture2D" uid="uid://ckmlr2jsohlh1" path="res://GreenCheckerboard.png" id="4_cq5uj"]
-[ext_resource type="Script" path="res://LOScriptReplayer_Node3D.gd" id="5_bviin"]
 [ext_resource type="Script" path="res://DebugLines.gd" id="6_nec70"]
-[ext_resource type="PackedScene" uid="uid://dgfq0cgjlpn7x" path="res://debug_indicator_TipsOnly.tscn" id="6_tilwc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eko38"]
 sky_top_color = Color(1, 1, 1, 1)
@@ -125,12 +123,6 @@ point_size = 5.0
 shading_mode = 0
 albedo_color = Color(1, 1, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cui2m"]
-shading_mode = 0
-albedo_color = Color(1, 1, 0, 1)
-use_point_size = true
-point_size = 5.0
-
 [node name="Main" type="Node3D"]
 script = ExtResource( "1_0w34i" )
 replayTime = 0.0
@@ -210,99 +202,3 @@ skeleton = NodePath("../slerp")
 script = ExtResource( "6_nec70" )
 lineMaterial = SubResource( "StandardMaterial3D_1uw0r" )
 debugIndicatorPath = "../LOScriptReplayerGroup_slerp"
-
-[node name="LOScriptReplayerGroup_slerp" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1.1, 0, 0)
-
-[node name="LOSolver_Interpolated" type="Node3D" parent="LOScriptReplayerGroup_slerp"]
-script = ExtResource( "5_bviin" )
-loFilename = "res://ObjectWiggle_Object.LOScript"
-
-[node name="DebugIndicator" parent="LOScriptReplayerGroup_slerp/LOSolver_Interpolated" instance=ExtResource( "1_fe687" )]
-
-[node name="Box" type="MeshInstance3D" parent="LOScriptReplayerGroup_slerp/LOSolver_Interpolated"]
-mesh = SubResource( "BoxMesh_jr4ad" )
-skeleton = NodePath("../..")
-
-[node name="LOSolver_PreA" type="Node3D" parent="LOScriptReplayerGroup_slerp"]
-script = ExtResource( "5_bviin" )
-loFilename = "res://ObjectWiggle_Object.LOScript"
-quatInterpolationMethod = 0
-
-[node name="DebugIndicator" parent="LOScriptReplayerGroup_slerp/LOSolver_PreA" instance=ExtResource( "6_tilwc" )]
-
-[node name="LOSolver_A" type="Node3D" parent="LOScriptReplayerGroup_slerp"]
-script = ExtResource( "5_bviin" )
-loFilename = "res://ObjectWiggle_Object.LOScript"
-quatInterpolationMethod = 1
-
-[node name="DebugIndicator" parent="LOScriptReplayerGroup_slerp/LOSolver_A" instance=ExtResource( "6_tilwc" )]
-
-[node name="LOSolver_B" type="Node3D" parent="LOScriptReplayerGroup_slerp"]
-script = ExtResource( "5_bviin" )
-loFilename = "res://ObjectWiggle_Object.LOScript"
-quatInterpolationMethod = 2
-
-[node name="DebugIndicator" parent="LOScriptReplayerGroup_slerp/LOSolver_B" instance=ExtResource( "6_tilwc" )]
-
-[node name="LOSolver_PostB" type="Node3D" parent="LOScriptReplayerGroup_slerp"]
-script = ExtResource( "5_bviin" )
-loFilename = "res://ObjectWiggle_Object.LOScript"
-quatInterpolationMethod = 3
-
-[node name="DebugIndicator" parent="LOScriptReplayerGroup_slerp/LOSolver_PostB" instance=ExtResource( "6_tilwc" )]
-
-[node name="DebugTraces_LOScript_cubic_slerp" type="MeshInstance3D" parent="."]
-skeleton = NodePath("../slerp")
-script = ExtResource( "3_q672x" )
-pointMaterial = SubResource( "StandardMaterial3D_cui2m" )
-tipHistoryLength = 120
-debugIndicatorPath = "../LOScriptReplayerGroup_cubic_slerp/LOSolver_Interpolated/DebugIndicator"
-
-[node name="DebugLines_LOScript_cubic_slerp" type="MeshInstance3D" parent="."]
-skeleton = NodePath("../slerp")
-script = ExtResource( "6_nec70" )
-lineMaterial = SubResource( "StandardMaterial3D_1uw0r" )
-debugIndicatorPath = "../LOScriptReplayerGroup_cubic_slerp"
-
-[node name="LOScriptReplayerGroup_cubic_slerp" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1.1, 0, 0)
-
-[node name="LOSolver_Interpolated" type="Node3D" parent="LOScriptReplayerGroup_cubic_slerp"]
-script = ExtResource( "5_bviin" )
-loFilename = "res://ObjectWiggle_Object.LOScript"
-quatInterpolationMethod = 7
-
-[node name="DebugIndicator" parent="LOScriptReplayerGroup_cubic_slerp/LOSolver_Interpolated" instance=ExtResource( "1_fe687" )]
-
-[node name="Box" type="MeshInstance3D" parent="LOScriptReplayerGroup_cubic_slerp/LOSolver_Interpolated"]
-mesh = SubResource( "BoxMesh_4dbh4" )
-skeleton = NodePath("../..")
-
-[node name="LOSolver_PreA" type="Node3D" parent="LOScriptReplayerGroup_cubic_slerp"]
-script = ExtResource( "5_bviin" )
-loFilename = "res://ObjectWiggle_Object.LOScript"
-quatInterpolationMethod = 0
-
-[node name="DebugIndicator" parent="LOScriptReplayerGroup_cubic_slerp/LOSolver_PreA" instance=ExtResource( "6_tilwc" )]
-
-[node name="LOSolver_A" type="Node3D" parent="LOScriptReplayerGroup_cubic_slerp"]
-script = ExtResource( "5_bviin" )
-loFilename = "res://ObjectWiggle_Object.LOScript"
-quatInterpolationMethod = 1
-
-[node name="DebugIndicator" parent="LOScriptReplayerGroup_cubic_slerp/LOSolver_A" instance=ExtResource( "6_tilwc" )]
-
-[node name="LOSolver_B" type="Node3D" parent="LOScriptReplayerGroup_cubic_slerp"]
-script = ExtResource( "5_bviin" )
-loFilename = "res://ObjectWiggle_Object.LOScript"
-quatInterpolationMethod = 2
-
-[node name="DebugIndicator" parent="LOScriptReplayerGroup_cubic_slerp/LOSolver_B" instance=ExtResource( "6_tilwc" )]
-
-[node name="LOSolver_PostB" type="Node3D" parent="LOScriptReplayerGroup_cubic_slerp"]
-script = ExtResource( "5_bviin" )
-loFilename = "res://ObjectWiggle_Object.LOScript"
-quatInterpolationMethod = 3
-
-[node name="DebugIndicator" parent="LOScriptReplayerGroup_cubic_slerp/LOSolver_PostB" instance=ExtResource( "6_tilwc" )]
