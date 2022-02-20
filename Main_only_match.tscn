@@ -150,7 +150,6 @@ tipHistoryLength = 120
 debugIndicatorPath = "../slerp/DebugIndicator"
 
 [node name="slerp" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0, 0)
 rotation_edit_mode = 1
 
 [node name="DebugIndicator" parent="slerp" instance=ExtResource( "1_fe687" )]
@@ -166,7 +165,6 @@ tipHistoryLength = 120
 debugIndicatorPath = "../cubic_slerp/DebugIndicator"
 
 [node name="cubic_slerp" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0, 0)
 rotation_edit_mode = 1
 
 [node name="DebugIndicator" parent="cubic_slerp" instance=ExtResource( "1_fe687" )]
@@ -175,7 +173,7 @@ rotation_edit_mode = 1
 mesh = SubResource( "BoxMesh_4dbh4" )
 
 [node name="lastKey" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 2.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
 rotation_edit_mode = 1
 
 [node name="DebugIndicator" parent="lastKey" instance=ExtResource( "1_fe687" )]

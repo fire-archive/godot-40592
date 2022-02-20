@@ -129,7 +129,7 @@ lineMaterial = SubResource( "StandardMaterial3D_1uw0r" )
 debugIndicatorPath = "../LOScriptReplayerGroup_slerp"
 
 [node name="LOScriptReplayerGroup_slerp" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1.1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0)
 
 [node name="LOSolver_Interpolated" type="Node3D" parent="LOScriptReplayerGroup_slerp"]
 script = ExtResource( "5_bviin" )
@@ -183,7 +183,7 @@ lineMaterial = SubResource( "StandardMaterial3D_1uw0r" )
 debugIndicatorPath = "../LOScriptReplayerGroup_cubic_slerp"
 
 [node name="LOScriptReplayerGroup_cubic_slerp" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1.1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0)
 
 [node name="LOSolver_Interpolated" type="Node3D" parent="LOScriptReplayerGroup_cubic_slerp"]
 script = ExtResource( "5_bviin" )
