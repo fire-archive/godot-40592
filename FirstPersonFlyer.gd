@@ -25,7 +25,6 @@ var last_camera_angle_y_filtered:float
 var navMode:NavigationMode = NavigationMode.NAVMODE_FPS
 
 # Movement:
-var velocity:Vector3 = Vector3()
 var direction:Vector3 = Vector3()
 var velocityMultiplier:float = 5
 const minVelocityMultiplier:float = 0.01
@@ -66,7 +65,7 @@ func _physics_process(delta):
 	# the other parts.
 	# The movement accumulated during _process-calls
 	# is relayed to the physics-engine here
-	motion_velocity = headDetachment / delta # motion_velocity is in m/s, therefore /delta
+	velocity = headDetachment / delta # motion_velocity is in m/s, therefore /delta
 	headDetachment = Vector3()	# Start accumulating from zero again
 	var _discard = move_and_slide()
 
@@ -112,7 +111,7 @@ func _process(delta):
 		camera_angle_y_unfiltered = camera_angle_y_filtered
 		camera_angle_x_unfiltered = camera_angle_x_filtered
 		direction = Vector3()
-		motion_velocity = Vector3()
+		velocity = Vector3()
 		velocity = Vector3()
 #		accumulatedVelocity = Vector3()
 		camera_change = Vector2()
