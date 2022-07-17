@@ -1,8 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://boxar1mx1sjn6"]
+[gd_scene load_steps=24 format=3 uid="uid://boxar1mx1sjn6"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_0w34i"]
 [ext_resource type="PackedScene" uid="uid://bsiv04ubiyxjr" path="res://debug_indicator.tscn" id="1_fe687"]
-[ext_resource type="PackedScene" uid="uid://b3ywvgurbetiy" path="res://FirstPersonFlyer.tscn" id="2_c50us"]
+[ext_resource type="PackedScene" uid="uid://cdsbuwxv2orek" path="res://FirstPersonFlyer.tscn" id="2_c50us"]
 [ext_resource type="Script" path="res://DebugTraces.gd" id="3_q672x"]
 [ext_resource type="Texture2D" uid="uid://ckmlr2jsohlh1" path="res://GreenCheckerboard.png" id="4_cq5uj"]
 [ext_resource type="Script" path="res://DebugLines.gd" id="6_nec70"]
@@ -14,11 +14,11 @@ ground_bottom_color = Color(0.121569, 0.121569, 0.129412, 1)
 ground_horizon_color = Color(0.780392, 0.780392, 0.782353, 1)
 
 [sub_resource type="Sky" id="Sky_00uh5"]
-sky_material = SubResource( "ProceduralSkyMaterial_eko38" )
+sky_material = SubResource("ProceduralSkyMaterial_eko38")
 
 [sub_resource type="Environment" id="Environment_5bc8l"]
 background_mode = 2
-sky = SubResource( "Sky_00uh5" )
+sky = SubResource("Sky_00uh5")
 tonemap_mode = 2
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
@@ -70,6 +70,11 @@ tracks/2/keys = {
 "values": [Quaternion(0, 0, -0.707, 0.707), Quaternion(0.509045, 0.505648, -0.49089, 0.494187), Quaternion(0.707105, 0.00212132, 0.707105, 0), Quaternion(0.458449, 0.538813, 0.458986, 0.537436), Quaternion(-0.000707107, 0.707107, 0, 0.707107), Quaternion(0.707107, 0, 0, 0.707107), Quaternion(0.5, 0.5, 0.5, 0.5), Quaternion(0.790594, -0.205453, -0.449878, 0.361053), Quaternion(-0.0370055, -0.196145, 0.881975, 0.426939), Quaternion(0, 0, 0, 1), Quaternion(0, 0, 0, 1), Quaternion(0, 0, 0, 1), Quaternion(0, 0, 0, 1), Quaternion(0.707, 0, 0.707, 0), Quaternion(1, 0, 0, 0), Quaternion(-1, 0, 0, 0), Quaternion(0, 0, 0, 1)]
 }
 
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yfsxp"]
+_data = {
+"Test": SubResource("Animation_x6cxi")
+}
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erogr"]
 shading_mode = 0
 vertex_color_use_as_albedo = true
@@ -80,7 +85,7 @@ point_size = 5.0
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jr4ad"]
-material = SubResource( "StandardMaterial3D_86kc0" )
+material = SubResource("StandardMaterial3D_86kc0")
 size = Vector3(0.4, 0.4, 0.4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0uvn"]
@@ -93,24 +98,24 @@ point_size = 5.0
 albedo_color = Color(0, 1, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4dbh4"]
-material = SubResource( "StandardMaterial3D_fhh1v" )
+material = SubResource("StandardMaterial3D_fhh1v")
 size = Vector3(0.4, 0.4, 0.4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5htn"]
 albedo_color = Color(0, 0, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_j2fwk"]
-material = SubResource( "StandardMaterial3D_u5htn" )
+material = SubResource("StandardMaterial3D_u5htn")
 size = Vector3(0.4, 0.4, 0.4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bdqjc"]
 transparency = 1
 albedo_color = Color(1, 1, 1, 0.0313726)
-albedo_texture = ExtResource( "4_cq5uj" )
+albedo_texture = ExtResource("4_cq5uj")
 uv1_scale = Vector3(32, 32, 32)
 
 [sub_resource type="BoxMesh" id="BoxMesh_kiq8u"]
-material = SubResource( "StandardMaterial3D_bdqjc" )
+material = SubResource("StandardMaterial3D_bdqjc")
 size = Vector3(100, 1, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dcyws"]
@@ -124,7 +129,7 @@ shading_mode = 0
 albedo_color = Color(1, 1, 0, 1)
 
 [node name="Main" type="Node3D"]
-script = ExtResource( "1_0w34i" )
+script = ExtResource("1_0w34i")
 replayTime = 0.0
 replaySpeed = 1.0
 replayTimeLoopStart = 0
@@ -136,67 +141,71 @@ shadow_enabled = true
 directional_shadow_max_distance = 250.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( "Environment_5bc8l" )
+environment = SubResource("Environment_5bc8l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Test"
-anims/Test = SubResource( "Animation_x6cxi" )
+libraries = {
+"": SubResource("AnimationLibrary_yfsxp")
+}
 
 [node name="DebugTraces_slerp" type="MeshInstance3D" parent="."]
 skeleton = NodePath("../slerp")
-script = ExtResource( "3_q672x" )
-pointMaterial = SubResource( "StandardMaterial3D_erogr" )
+script = ExtResource("3_q672x")
+pointMaterial = SubResource("StandardMaterial3D_erogr")
 tipHistoryLength = 120
 debugIndicatorPath = "../slerp/DebugIndicator"
 
 [node name="slerp" type="Node3D" parent="."]
+transform = Transform3D(0.908047, 0.198449, -0.368874, -0.214313, -0.536531, -0.816213, -0.359889, 0.820215, -0.444665, 0, 0, 0)
 rotation_edit_mode = 1
 
-[node name="DebugIndicator" parent="slerp" instance=ExtResource( "1_fe687" )]
+[node name="DebugIndicator" parent="slerp" instance=ExtResource("1_fe687")]
 
 [node name="Box" type="MeshInstance3D" parent="slerp"]
-mesh = SubResource( "BoxMesh_jr4ad" )
+mesh = SubResource("BoxMesh_jr4ad")
 
 [node name="DebugTraces_cubic_slerp" type="MeshInstance3D" parent="."]
 skeleton = NodePath("../slerp")
-script = ExtResource( "3_q672x" )
-pointMaterial = SubResource( "StandardMaterial3D_r0uvn" )
+script = ExtResource("3_q672x")
+pointMaterial = SubResource("StandardMaterial3D_r0uvn")
 tipHistoryLength = 120
 debugIndicatorPath = "../cubic_slerp/DebugIndicator"
 
 [node name="cubic_slerp" type="Node3D" parent="."]
+transform = Transform3D(0.915089, 0.0274644, -0.402315, -0.350376, -0.439726, -0.826969, -0.199621, 0.897712, -0.392766, 0, 0, 0)
 rotation_edit_mode = 1
 
-[node name="DebugIndicator" parent="cubic_slerp" instance=ExtResource( "1_fe687" )]
+[node name="DebugIndicator" parent="cubic_slerp" instance=ExtResource("1_fe687")]
 
 [node name="Box" type="MeshInstance3D" parent="cubic_slerp"]
-mesh = SubResource( "BoxMesh_4dbh4" )
+mesh = SubResource("BoxMesh_4dbh4")
 
 [node name="lastKey" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+transform = Transform3D(0.510797, -2.15096e-07, -0.859701, -0.64972, -0.654859, -0.386035, -0.562983, 0.755751, -0.334501, 0, 2.1, 0)
 rotation_edit_mode = 1
 
-[node name="DebugIndicator" parent="lastKey" instance=ExtResource( "1_fe687" )]
+[node name="DebugIndicator" parent="lastKey" instance=ExtResource("1_fe687")]
 
 [node name="Box" type="MeshInstance3D" parent="lastKey"]
-mesh = SubResource( "BoxMesh_j2fwk" )
+mesh = SubResource("BoxMesh_j2fwk")
 
-[node name="FirstPersonFlyer" parent="." instance=ExtResource( "2_c50us" )]
+[node name="FirstPersonFlyer" parent="." instance=ExtResource("2_c50us")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 6)
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.69822, 0)
-mesh = SubResource( "BoxMesh_kiq8u" )
+mesh = SubResource("BoxMesh_kiq8u")
 
 [node name="DebugTraces_LOScript_slerp" type="MeshInstance3D" parent="."]
 skeleton = NodePath("../slerp")
-script = ExtResource( "3_q672x" )
-pointMaterial = SubResource( "StandardMaterial3D_dcyws" )
+script = ExtResource("3_q672x")
+pointMaterial = SubResource("StandardMaterial3D_dcyws")
 tipHistoryLength = 120
 debugIndicatorPath = "../LOScriptReplayerGroup_slerp/LOSolver_Interpolated/DebugIndicator"
 
 [node name="DebugLines_LOScript_slerp" type="MeshInstance3D" parent="."]
 skeleton = NodePath("../slerp")
-script = ExtResource( "6_nec70" )
-lineMaterial = SubResource( "StandardMaterial3D_1uw0r" )
+script = ExtResource("6_nec70")
+lineMaterial = SubResource("StandardMaterial3D_1uw0r")
 debugIndicatorPath = "../LOScriptReplayerGroup_slerp"

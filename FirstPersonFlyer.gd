@@ -1,3 +1,4 @@
+#@tool
 extends CharacterBody3D
 
 var camera_angle_y_unfiltered:float = 0
@@ -25,11 +26,11 @@ var last_camera_angle_y_filtered:float
 var navMode:NavigationMode = NavigationMode.NAVMODE_FPS
 
 # Movement:
-var velocity:Vector3 = Vector3()
+var localVelocity:Vector3 = Vector3()
 var direction:Vector3 = Vector3()
 var velocityMultiplier:float = 5
 const minVelocityMultiplier:float = 0.01
-const maxVelocityMultiplier:float = 20
+const maxVelocityMultiplier:float = 200
 const flyAcceleration:float = 0.9	# 0 = don't move, 1 = immediately full speed
 	
 
@@ -66,7 +67,7 @@ func _physics_process(delta):
 	# the other parts.
 	# The movement accumulated during _process-calls
 	# is relayed to the physics-engine here
-	motion_velocity = headDetachment / delta # motion_velocity is in m/s, therefore /delta
+	velocity = headDetachment / delta # velocity is in m/s, therefore /delta
 	headDetachment = Vector3()	# Start accumulating from zero again
 	var _discard = move_and_slide()
 
@@ -112,8 +113,8 @@ func _process(delta):
 		camera_angle_y_unfiltered = camera_angle_y_filtered
 		camera_angle_x_unfiltered = camera_angle_x_filtered
 		direction = Vector3()
-		motion_velocity = Vector3()
 		velocity = Vector3()
+		localVelocity = Vector3()
 #		accumulatedVelocity = Vector3()
 		camera_change = Vector2()
 
@@ -170,10 +171,10 @@ func fly(delta):
 	var target = direction * velocityMultiplier
 	
 	var correctedCoeff = pow(1 - flyAcceleration, delta)
-	velocity = correctedCoeff * velocity + target * (1 - correctedCoeff)
-#	print(velocity)
+	localVelocity = correctedCoeff * localVelocity + target * (1 - correctedCoeff)
+#	print(localVelocity)
 		
-	var translation = velocity  * delta
+	var translation = localVelocity  * delta
 	headDetachment += translation
 
 	var head:Node3D = get_node("Head")
@@ -275,14 +276,16 @@ func set_LocationOrientation(newTransform: Transform3D):
 	# TODO: should relay this to _physics_process instead
 	# TODO: 6DOF?
 	transform = newTransform
-	transform.basis = Basis()
-	var newBasis = newTransform.basis
-	camera_angle_x_unfiltered = - rad2deg(asin(newBasis.z.y))
-	camera_angle_x_filtered = camera_angle_x_unfiltered
-	camera_angle_y_unfiltered = rad2deg(atan2(newBasis.z.x, newBasis.z.z))
-	camera_angle_y_filtered = camera_angle_y_unfiltered
-	rotate_x(deg2rad(camera_angle_x_filtered))
-	rotate_y(deg2rad(camera_angle_y_filtered))
+	if (navMode == NavigationMode.NAVMODE_FPS):
+		transform.basis = Basis()
+		var newBasis = newTransform.basis
+		camera_angle_x_unfiltered = - rad2deg(asin(newBasis.z.y))
+		camera_angle_x_filtered = camera_angle_x_unfiltered
+		camera_angle_y_unfiltered = rad2deg(atan2(newBasis.z.x, newBasis.z.z))
+		camera_angle_y_filtered = camera_angle_y_unfiltered
+		rotate_x(deg2rad(camera_angle_x_filtered))
+		rotate_y(deg2rad(camera_angle_y_filtered))
+		
 #	firstPerson.camera_change = Vector2(0,0)
 
 	
