@@ -1,9 +1,6 @@
 extends Node3D
 
-@export var replayTime:float = 124140000
 @export var replaySpeed:float = 1
-@export var replayTimeLoopStart = 124140000
-@export var replayTimeLoopEnd = 124140000 + 100 * 1000
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,17 +8,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	replayTime += delta * 1000 * replaySpeed
-	if (replayTime >= replayTimeLoopEnd):
-		replayTime = replayTimeLoopStart
 	
 	if Input.is_action_just_pressed("reset_playback"):
-		replayTime = replayTimeLoopStart
 		$AnimationPlayer.seek(0, true)
 		$DebugTraces_slerp.clear()
 		$DebugTraces_cubic_slerp.clear()
-		$DebugTraces_LOScript_slerp.clear()
-		$DebugTraces_LOScript_cubic_slerp.clear()
+
+	$Label_PlaybackPos.text =  " %1.2f s (%1.1f %%)" % [$AnimationPlayer.current_animation_position, 100.0 * ($AnimationPlayer.current_animation_position / $AnimationPlayer.current_animation_length)]
 
 func _input(event):
 	if event is InputEventKey and event.pressed:

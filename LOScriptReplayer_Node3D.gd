@@ -195,6 +195,12 @@ func _process(_delta):
 					# Causes some strange jitter
 					quat = quat_a.slerpni(quat_b, fraction)
 				QUAT_INTERPOLATION_METHOD.cubic_slerp:
+					# If you want to test the interpolation method in PR
+					# https://github.com/godotengine/godot/pull/63287
+					# use cubic_interpolate-version below:
+#					quat = quat_a.cubic_interpolate(quat_b, quat_pre_a, quat_post_b, fraction)
+
+					# "Traditional" version:
 					quat = quat_a.cubic_slerp(quat_b, quat_pre_a, quat_post_b, fraction)
 				_:
 					quat = quat_a

@@ -12,8 +12,8 @@ config_version=5
 
 config/name="Quat Cubic Slerp Issue"
 run/main_scene="res://Main_only_script.tscn"
-config/icon="res://icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
+config/icon="res://icon.png"
 
 [display]
 
