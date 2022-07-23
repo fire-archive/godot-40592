@@ -4,7 +4,7 @@
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_4kib1"]
-material = SubResource( "StandardMaterial3D_os3na" )
+material = SubResource("StandardMaterial3D_os3na")
 top_radius = 0.05
 bottom_radius = 0.05
 height = 0.8
@@ -15,7 +15,7 @@ rings = 1
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_bn27b"]
-material = SubResource( "StandardMaterial3D_hcck1" )
+material = SubResource("StandardMaterial3D_hcck1")
 top_radius = 0.001
 bottom_radius = 0.1
 height = 0.2
@@ -26,7 +26,7 @@ rings = 1
 albedo_color = Color(0, 1, 0, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_4wg8y"]
-material = SubResource( "StandardMaterial3D_b3p13" )
+material = SubResource("StandardMaterial3D_b3p13")
 top_radius = 0.05
 bottom_radius = 0.05
 height = 0.8
@@ -37,7 +37,7 @@ rings = 1
 albedo_color = Color(0, 1, 0, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_nnl2u"]
-material = SubResource( "StandardMaterial3D_ke7xm" )
+material = SubResource("StandardMaterial3D_ke7xm")
 top_radius = 0.001
 bottom_radius = 0.1
 height = 0.2
@@ -48,7 +48,7 @@ rings = 1
 albedo_color = Color(0, 0, 1, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_xbf7f"]
-material = SubResource( "StandardMaterial3D_0kox7" )
+material = SubResource("StandardMaterial3D_0kox7")
 top_radius = 0.05
 bottom_radius = 0.05
 height = 0.8
@@ -59,7 +59,7 @@ rings = 1
 albedo_color = Color(0, 0, 1, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_bbh0s"]
-material = SubResource( "StandardMaterial3D_ekuhs" )
+material = SubResource("StandardMaterial3D_ekuhs")
 top_radius = 0.001
 bottom_radius = 0.1
 height = 0.2
@@ -73,12 +73,12 @@ transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Cone" type="MeshInstance3D" parent="XAxis"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
-mesh = SubResource( "CylinderMesh_4kib1" )
+mesh = SubResource("CylinderMesh_4kib1")
 skeleton = NodePath("../..")
 
 [node name="TipCone" type="MeshInstance3D" parent="XAxis"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-mesh = SubResource( "CylinderMesh_bn27b" )
+mesh = SubResource("CylinderMesh_bn27b")
 skeleton = NodePath("../..")
 
 [node name="TipEnd" type="Node3D" parent="XAxis"]
@@ -88,12 +88,12 @@ transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Cone" type="MeshInstance3D" parent="YAxis"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
-mesh = SubResource( "CylinderMesh_4wg8y" )
+mesh = SubResource("CylinderMesh_4wg8y")
 skeleton = NodePath("../..")
 
 [node name="TipCone" type="MeshInstance3D" parent="YAxis"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-mesh = SubResource( "CylinderMesh_nnl2u" )
+mesh = SubResource("CylinderMesh_nnl2u")
 skeleton = NodePath("../..")
 
 [node name="TipEnd" type="Node3D" parent="YAxis"]
@@ -104,12 +104,12 @@ transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
 
 [node name="Cone" type="MeshInstance3D" parent="ZAxis"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
-mesh = SubResource( "CylinderMesh_xbf7f" )
+mesh = SubResource("CylinderMesh_xbf7f")
 skeleton = NodePath("../..")
 
 [node name="TipCone" type="MeshInstance3D" parent="ZAxis"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-mesh = SubResource( "CylinderMesh_bbh0s" )
+mesh = SubResource("CylinderMesh_bbh0s")
 skeleton = NodePath("../..")
 
 [node name="TipEnd" type="Node3D" parent="ZAxis"]
