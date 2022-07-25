@@ -1,5 +1,5 @@
 # godot-40592
 
-Preparing for merge into Godot Engine tests.
+Merged into Godot Engine tests.
 
-https://github.com/godotengine/godot-tests/pull/24
+https://github.com/godotengine/godot-tests
